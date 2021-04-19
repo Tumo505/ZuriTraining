@@ -1,0 +1,16 @@
+{
+  "name": "filesystemtask",
+  "version": "1.0.0",
+  "description": "file system task",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Tumo Kgosiyame",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1"
+  }
+}

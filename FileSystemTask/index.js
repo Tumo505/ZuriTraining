@@ -1,24 +1,20 @@
 const fs = require('fs')
 const fetch = require("node-fetch")
+const request = require('request');
 
 
+var options = {
+    url: 'http://jsonplaceholder.typicode.com/posts',
+    method: 'GET',
+    accept: 'application/json',
+    // json: true,
+};
+var path = './result/posts.json';
+var ws = fs.createWriteStream(path);
 
-
-async function getPosts() {
-    const posts = await fetch("http://jsonplaceholder.typicode.com/posts");
-    let response = await posts.json()
-        // console.log(response)
-
-    fs.readFile('./result/posts.json', 'utf8', (err, data) => {
-        if (err) throw err
-
-        // posts = JSON.parse(content);
-        // data.push(posts)
-
-        fs.writeFile('./result/posts.json', JSON.stringify(posts), (err) => {
-            if (err) throw err
-        })
-    })
-
-}
-getPosts()
+// Start the request
+request(options).on('error', function(error) {
+    console.log(error);
+}).on('close', function() {
+    console.log('Done');
+}).pipe(ws);

@@ -14,13 +14,20 @@ const client = new MongoClient(connectionString, {
     useUnifiedTopology: true
 });
 
-client.connect("bookshop", (err, connectedClient) => {
-    if (err) throw err;
-    const db = connectedClient.db("bookshop")
-    db.collection("books").find({}).toArray((err, result) => {
-        console.log(result)
+
+app.get('/books', (req, res) => {
+    client.connect((err, connectedClient) => {
+        if (err) return res.status(500).json({message: err});
+        const db = connectedClient.db("bookshop")
+        db.collection("books").find({}).toArray((err, result) => {
+            if (err) {
+                return res.status(500).json({message: err})
+            }
+            return res.status(200).json({books: result})
+        })
     })
 })
+
 
 
 app.listen(port , ()=> console.log('> Server is up and running on port : ' + port))

@@ -1,21 +1,22 @@
-SIMPLE EXPRESS APPLICATION
+# SIMPLE EXPRESS APPLICATION
+
+Deployed to heroku
+> https://vast-eyrie-47285.herokuapp.com/
 
 **ROUTES**
 
-Creating the payload
+_Creating the payload_
 > /people
 
-Getting all the people
+_Getting all the people_
 > /people
 
-Get single person by id
+_Get single person by id_
 > /people/:id
 
-Updating the data
+_Updating the data_
 > /person/:id
 
-Deleting the data
+_Deleting the data_
 > /peron/:id
 
-Dployed to heroku
-> https://vast-eyrie-47285.herokuapp.com/

@@ -1,13 +1,17 @@
 const express = require("express");
 const mongoose = require("mongoose");
+require('dotenv').config()
 const peopleRouter = require("./routes/peopleRoutes.js");
+
+const PORT = process.env;
+const { MONGO_URI } = process.env;
 
 const app = express();
 
 app.use(express.json());
 
 mongoose.connect(
-  "mongodb+srv://Tumo505:TumoZuriTraining@tutoringappcluster.ejhkk.mongodb.net/CRUDAssignment?retryWrites=true&w=majority",
+  MONGO_URI,
   {
     useNewUrlParser: true,
     useFindAndModify: false,
@@ -15,8 +19,10 @@ mongoose.connect(
   }
 );
 
+const port = process.env.PORT || PORT
+
 app.use(peopleRouter);
 
-app.listen(5000, () => {
-  console.log("Server is running on port 5000...");
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}...`);
 });

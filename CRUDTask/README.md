@@ -1,4 +1,4 @@
-Simple express application
+SIMPLE EXPRESS APPLICATION
 
 **ROUTES**
 
@@ -16,3 +16,6 @@ Updating the data
 
 Deleting the data
 > /peron/:id
+
+Dployed to heroku
+> https://vast-eyrie-47285.herokuapp.com/
